@@ -136,5 +136,4 @@ app.post('/api/chat', async (req, res) => {
 // 서버 실행
 app.listen(port, () => {
     console.log(`Windows 개발 서버가 http://localhost:${port} 에서 실행 중입니다.`);
-    initializeAcademicData();
 });
