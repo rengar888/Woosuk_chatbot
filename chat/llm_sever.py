@@ -91,6 +91,7 @@ def get_chatbot_response():
             num_return_sequences=1, 
             do_sample=True, 
             top_p=0.9,
+            repetition_penalty=1.2,
             pad_token_id=GENERATOR.tokenizer.eos_token_id # 텍스트 생성 종료 처리
         )
         
