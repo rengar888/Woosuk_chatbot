@@ -101,7 +101,7 @@ def get_chatbot_response():
 
     try:
         # 1. (검색): Faiss를 이용해 관련 문맥(context) 검색
-        retrieved_chunks = retrieve_relevant_context(query, FAISS_INDEX, MODEL, DOCUMENT_CHUNKS, k=4)
+        retrieved_chunks = retrieve_relevant_context(query, FAISS_INDEX, MODEL, DOCUMENT_CHUNKS, k=2)
         context = "\n".join(retrieved_chunks)
 
         # 2. (프롬프트 구성)
@@ -111,7 +111,7 @@ def get_chatbot_response():
         # 3. (생성): 로컬 LLM 호출
         response = GENERATOR(
             rag_prompt,
-            max_length=256,
+            max_length=128,
             num_return_sequences=1,
             do_sample=True,
             top_p=0.9,
